@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: green;
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Crop Prediction System</h1>
+
+    <div class="container">
+        <form id="predictionForm">
+            <label for="location">Location:</label>
+            <select id="location" name="Location (Village/Town)" required>
+                <option value="">Select Location</option>
+                <option value="Puttur">Puttur</option>
+<option value="Uppinangady">Uppinangady</option>
+<option value="Nekkilady">Nekkilady</option>
+<option value="Aithoor">Aithoor</option>
+<option value="Alankaru">Alankaru</option>
+<option value="Alanthaya">Alanthaya</option>
+<option value="Ariyadka">Ariyadka</option>
+<option value="Aryapu">Aryapu</option>
+<option value="Badagannur">Badagannur</option>
+<option value="Bajathuru">Bajathuru</option>
+<option value="Ballya">Ballya</option>
+<option value="Balnadu">Balnadu</option>
+<option value="Bannur">Bannur</option>
+<option value="Bantra">Bantra</option>
+<option value="Belandoor">Belandoor</option>
+<option value="Bellipadi">Bellipadi</option>
+<option value="Bettampady">Bettampady</option>
+<option value="Bilinele">Bilinele</option>
+<option value="Charvaka">Charvaka</option>
+<option value="Chickamudnoor">Chickamudnoor</option>
+<option value="Dolpady">Dolpady</option>
+<option value="Golithattu">Golithattu</option>
+<option value="Haleneranki">Haleneranki</option>
+<option value="Hirebandadi">Hirebandadi</option>
+<option value="Ichlampady">Ichlampady</option>
+<option value="Irde">Irde</option>
+<option value="Kabaka">Kabaka</option>
+<option value="Kadaba">Kadaba</option>
+<option value="Kaimana">Kaimana</option>
+<option value="Kaniyoor">Kaniyoor</option>
+<option value="Kedambady">Kedambady</option>
+<option value="Kemminje">Kemminje</option>
+<option value="Keyyur">Keyyur</option>
+<option value="Kodimbady">Kodimbady</option>
+<option value="Kodimbala">Kodimbala</option>
+<option value="Kolthige">Kolthige</option>
+<option value="Kombaru">Kombaru</option>
+<option value="Konaje">Konaje</option>
+<option value="Konalu">Konalu</option>
+<option value="Kowkradi">Kowkradi</option>
+<option value="Kudipadi">Kudipadi</option>
+<option value="Kudmaru">Kudmaru</option>
+<option value="Kunthoor">Kunthoor</option>
+<option value="Kuriya">Kuriya</option>
+<option value="Kutrupadi">Kutrupadi</option>
+<option value="Madnooru">Madnooru</option>
+<option value="Mundoor">Mundoor</option>
+<option value="Narimogru">Narimogru</option>
+<option value="Nekkiladi">Nekkiladi</option>
+<option value="Nelyadi">Nelyadi</option>
+<option value="Nettanigemudnoor">Nettanigemudnoor</option>
+<option value="Nidpalli">Nidpalli</option>
+<option value="Noojibalthila">Noojibalthila</option>
+<option value="Olamogru">Olamogru</option>
+<option value="Padnoor">Padnoor</option>
+<option value="Paduvannur">Paduvannur</option>
+<option value="Palthadi">Palthadi</option>
+<option value="Panaje">Panaje</option>
+<option value="Perabe">Perabe</option>
+<option value="Punachpady">Punachpady</option>
+<option value="Ramakunja">Ramakunja</option>
+<option value="Renjilady">Renjilady</option>
+<option value="Sarve">Sarve</option>
+<option value="Savanur">Savanur</option>
+<option value="Shanthigodu">Shanthigodu</option>
+<option value="Shiradi">Shiradi</option>
+<option value="Shiribagilu">Shiribagilu</option>
+<option value="Thikalbail">Thikalbail</option>
+<option value="Ubar">Ubar</option>
+<option value="Uppinangady">Uppinangady</option>
+<option value="Vitlapu">Vitlapu</option>
+<option value="Alangar">Alangar</option>
+<option value="Alvase">Alvase</option>
+<option value="Badagannur">Badagannur</option>
+<option value="Bajathuru">Bajathuru</option>
+<option value="Ballya">Ballya</option>
+<option value="Balnadu">Balnadu</option>
+<option value="Bannur">Bannur</option>
+<option value="Bantra">Bantra</option>
+<option value="Belandoor">Belandoor</option>
+<option value="Bellipadi">Bellipadi</option>
+<option value="Bettampady">Bettampady</option>
+<option value="Bilinele">Bilinele</option>
+<option value="Charvaka">Charvaka</option>
+<option value="Chickamudnoor">Chickamudnoor</option>
+<option value="Dolpady">Dolpady</option>
+<option value="Golithattu">Golithattu</option>
+<option value="Haleneranki">Haleneranki</option>
+<option value="Hirebandadi">Hirebandadi</option>
+<option value="Ichlampady">Ichlampady</option>
+<option value="Irde">Irde</option>
+<option value="Kabaka">Kabaka</option>
+<option value="Kadaba">Kadaba</option>
+
+                <!-- Add more options here -->
+            </select>
+
+            <label for="season">Season:</label>
+            <select id="season" name="Season" required>
+                <option value="">Select Season</option>
+                <option value="Monsoon">Monsoon</option>
+                <option value="Summer">Summer</option>
+                <option value="Winter">Winter</option>
+                <option value="Throughout">Throughout</option>
+            </select>
+
+            <label for="soil">Soil Type:</label>
+            <select id="soil" name="Soil Type" required>
+                <option value="">Select Soil Type</option>
+                <option value="Clay Loam">Clay Loam</option>
+                <option value="Laterite Soil">Laterite Soil</option>
+                <option value="Sandy Clay">Sandy Clay</option>
+                <option value="Sandy Loam">Sandy Loam</option>
+                <option value="Alluvial Soil">Alluvial Soil</option>
+                <option value="Red Soil">Red Soil</option>
+                <option value="Loamy Sand">Loamy Sand</option>
+            </select>
+
+            <label for="minTemp">Min Temperature (°C):</label>
+            <input type="number" id="minTemp" name="Min Temperature (°C)" required>
+
+            <label for="maxTemp">Max Temperature (°C):</label>
+            <input type="number" id="maxTemp" name="Max Temperature (°C)" required>
+
+            <button type="button" onclick="predictCrop()">Predict Crop</button>
+        </form>
+
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        async function predictCrop() {
+            const form = document.getElementById('predictionForm');
+            const formData = new FormData(form);
+
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.error) {
+                    document.getElementById('output').innerText = 'Error: ' + result.error;
+                    document.getElementById('output').classList.add('error');
+                } else {
+                    document.getElementById('output').innerText = 'Predicted Crop: ' + result.predicted_crop;
+                    document.getElementById('output').classList.remove('error');
+                    document.getElementById('output').classList.add('success');
+                }
+            } catch (error) {
+                document.getElementById('output').innerText = 'Error: ' + error.message;
+                document.getElementById('output').classList.add('error');
+            }
+        }
+    </script>
+</body>
+
+</html>
+
